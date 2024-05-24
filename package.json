@@ -1,0 +1,24 @@
+{
+    "name": "walkthrough-js-dev",
+    "version": "1.0.0",
+    "description": "Sample JS utilities library",
+    "main": "dist/walkthrough-js-dev.cjs.js",
+    "module": "dist/walkthrough-js-dev.esm.js",
+    "browser": "dist/walkthrough-js-dev.umd.js",
+    "scripts": {
+        "build": "rollup -c",
+        "test": "node test/spec",
+        "pretest": "npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.24.5",
+        "@babel/preset-env": "^7.24.5",
+        "rollup": "^2.79.1",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0"
+    }
+}
