@@ -1,3 +1,7 @@
 import walkthroughObj from "./index.js";
 
-walkthroughObj.start();
+let buttonElement = document.querySelector("button");
+
+buttonElement.addEventListener("click", () => {
+    walkthroughObj.start();
+});

@@ -1,41 +1,57 @@
 import getFormatBeforeStaring from "./helper/getFormatBeforeStarting.js";
+import startIntro from "./helper/startIntro.js";
 
 function Walkthrough() {
-    let step = -1;
+    let steps = -1;
     let currentStep = -1;
     let format = {};
-    /*      
-    This is the format
-    {
-  steps: [{
-    title: 'Welcome',
-    intro: 'Hello World! 👋'
-  },
-  {
-    element: document.querySelector('.card-demo'),
-    intro: 'This step focuses on an image'
-  },
-  {
-    title: 'Farewell!',
-    element: document.querySelector('.card__image'),
-    intro: 'And this is our final step!'
-  }]
-        }    
-
-*/
 
     this.start = () => {
         const format = getFormatBeforeStaring();
-        console.log(format);
-    };
-    this.setOptions = () => {
-        // You want the data to be in this format before staring the transition
-    };
-    this.addHints = () => {};
-}
+        this.format = format;
 
-// step initial -> -1
-//
+        if (this.validateFormattedDataAndSetStepsLength()) {
+            // start the intro
+            startIntro(this.steps, this.currentStep, this.format);
+        } else {
+            console.log(this.format);
+            throw new Error("Data not available or invalid");
+        }
+    };
+
+    this.setOptions = (format) => {
+        this.format = format;
+        if (this.validateFormattedDataAndSetStepsLength()) {
+            startIntro(this.steps, this.currentStep, this.format);
+        } else {
+            throw new Error("Data not available or invalid");
+        }
+    };
+
+    this.addHints = () => {};
+
+    this.isFormattedDataPresent = () => {
+        if (Object.keys(this.format).length > 0) {
+            return true;
+        }
+        return false;
+    };
+
+    /*  setStepsLength function also validates weither
+         data is present in formattedData or not
+    */
+    this.validateFormattedDataAndSetStepsLength = () => {
+        if (this.isFormattedDataPresent()) {
+            let stepsFromFormattedData = this.format["steps"];
+            if (stepsFromFormattedData && stepsFromFormattedData.length > 0) {
+                this.steps = stepsFromFormattedData.length;
+            }
+            return true;
+        }
+
+        return false;
+    };
+}
 
 const walkthroughObj = new Walkthrough();
 
