@@ -46,6 +46,7 @@ function Walkthrough() {
             if (stepsFromFormattedData && stepsFromFormattedData.length > 0) {
                 this.steps = stepsFromFormattedData.length;
             }
+            this.currentStep = 0;
             return true;
         }
 
