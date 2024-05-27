@@ -12,7 +12,7 @@ function Walkthrough() {
 
         if (this.validateFormattedDataAndSetStepsLength()) {
             // start the intro
-            startIntro(this.steps, this.currentStep, this.format);
+            startIntro(this.steps, this.currentStep, this.format?.steps);
         } else {
             console.log(this.format);
             throw new Error("Data not available or invalid");
