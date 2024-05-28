@@ -154,7 +154,7 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     boxHeader.classList.add("box-header");
     boxBody.classList.add("box-body");
     boxFooter.classList.add("box-footer");
-    arrowElement.style.position = "relative";
+    arrowElement.style.position = "absolute";
 
     console.log("arrowElement: " + arrowElement);
     // small arrow
