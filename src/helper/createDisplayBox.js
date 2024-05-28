@@ -7,14 +7,30 @@ const removeOverlayAndAddBorder = (domElement, position = "bottom") => {
     // check if domElement is actually a dom element
     if (domElement instanceof Element) {
         // add the transparent element with appropriate styles
-        const { x, y, right, bottom } = domElement.getBoundingClientRect();
+        const rect = domElement.getBoundingClientRect();
+        const left = rect.left + window.pageXOffset;
+        const right = rect.right + window.pageXOffset;
+        const top = rect.top + window.pageYOffset;
+        const bottom = rect.bottom + window.pageYOffset;
+
+        console.log(
+            rect.left +
+                " " +
+                rect.top +
+                " " +
+                rect.right +
+                " " +
+                top +
+                " " +
+                bottom
+        );
 
         let transparentElement = document.createElement("div");
         transparentElement.style.position = "absolute";
-        transparentElement.style.left = x - 10 + "px";
-        transparentElement.style.top = y - 10 + "px";
-        transparentElement.style.width = right + 10 + "px";
-        transparentElement.style.height = bottom + 10 + "px";
+        transparentElement.style.left = left - 20 + "px";
+        transparentElement.style.top = top - 20 + "px";
+        transparentElement.style.width = right - left + 20 + "px";
+        transparentElement.style.height = bottom - top + 20 + "px";
         transparentElement.classList.add("transparent-element");
         domElement.classList.add("removeOverlayOnDomElement");
 
@@ -24,16 +40,18 @@ const removeOverlayAndAddBorder = (domElement, position = "bottom") => {
         // calculate the position to add the display box
 
         let positionObject = {
-            left: [x - 50, y],
-            right: [right + 50, y],
-            bottom: [x, bottom + 50],
-            top: [x, bottom - y - y],
+            left: [left - 10, top],
+            right: [right + 10, top],
+            bottom: [left, bottom + 10],
+            top: [left, bottom - top - top],
         };
 
         // returning the position
 
-        if (positionObject?.position) {
-            return positionObject?.position;
+        console.log("position ", positionObject[position]);
+
+        if (positionObject[position]) {
+            return positionObject[position];
         } else {
             return positionObject["bottom"];
         }
@@ -68,8 +86,6 @@ const removeAllAppendedElements = (domElement) => {
         throw new Error("Cant remove elememt");
     }
 };
-
-
 
 const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     // extracting the info from the format
@@ -115,21 +131,15 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
         if (currentStep < totalStepsLength - 1) {
             currentStep++;
 
-            // remove -> the transition-element, displaybox,
-
             let isRemoved = removeAllAppendedElements(domElement);
             if (isRemoved) {
                 CreateDisplayBox(totalStepsLength, currentStep, format);
             }
-
-            // recursively call this function
         } else if (currentStep === totalStepsLength - 1) {
             // todo : change it to finished state and close the intro
             event.target.textContent = "Finished";
         }
     });
-
-    // appending child
 
     // setting Text content
     backButton.textContent = "Back";
@@ -137,6 +147,8 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
 
     boxHeader.textContent = title;
     boxBody.textContent = intro;
+
+    // appending child
 
     boxFooter.appendChild(backButton);
     boxFooter.appendChild(forwardButton);
