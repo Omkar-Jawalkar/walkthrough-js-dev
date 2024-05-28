@@ -1,3 +1,5 @@
+import { setBackButtonText, setForwardButtonText } from "./SetButtonText.js";
+
 /* 
     function removeOverlayAndAddBorder
     @param {domElement} domElement , position
@@ -107,6 +109,9 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     let backButton = document.createElement("button");
     let forwardButton = document.createElement("button");
 
+    backButton.id = "backButton";
+    forwardButton.id = "forwardButton";
+
     // setting styles
     box.style.left = left + "px";
     box.style.top = top + "px";
@@ -127,17 +132,23 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
         }
     });
 
-    forwardButton.addEventListener("click", (e) => {
-        if (currentStep < totalStepsLength - 1) {
+    forwardButton.addEventListener("click", (event) => {
+        if (currentStep === totalStepsLength - 2) {
+            setForwardButtonText();
+        }
+
+        if (currentStep < totalStepsLength) {
             currentStep++;
 
-            let isRemoved = removeAllAppendedElements(domElement);
-            if (isRemoved) {
-                CreateDisplayBox(totalStepsLength, currentStep, format);
+            if (currentStep < totalStepsLength) {
+                let isRemoved = removeAllAppendedElements(domElement);
+                if (isRemoved) {
+                    CreateDisplayBox(totalStepsLength, currentStep, format);
+                }
+            } else {
+                document.body.classList.remove("overlay");
+                removeAllAppendedElements(domElement);
             }
-        } else if (currentStep === totalStepsLength - 1) {
-            // todo : change it to finished state and close the intro
-            event.target.textContent = "Finished";
         }
     });
 
