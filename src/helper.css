@@ -3,16 +3,35 @@
     background-color: white;
 }
 
+/* arrow  */
+
+.left-arrow,
+.right-arrow {
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+}
+.up-arrow,
+.down-arrow {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+.right-arrow {
+    border-left: 10px solid white;
+}
+.left-arrow {
+    border-right: 15px solid white;
+}
+.up-arrow {
+    border-bottom: 10px solid white;
+}
+.down-arrow {
+    border-top: 10px solid white;
+}
+
 #forwardButton,
 #backButton {
     padding: 12px 16px;
     margin: 12px;
-}
-
-/* todo : remove the h1 style */
-h1,
-h2 {
-    border: 2px solid rgba(0, 0, 0, 1);
 }
 
 .removeOverlayOnDomElement {
@@ -40,7 +59,6 @@ h2 {
     height: 250px;
     color: black !important;
     background-color: white;
-
     display: flex !important;
     flex-direction: column;
     justify-content: space-between;
@@ -56,6 +74,13 @@ h2 {
 .box-body {
     width: inherit !important;
     text-align: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center !important;
 }
 
 .box-footer {

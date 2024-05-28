@@ -72,7 +72,6 @@ const removeOverlayAndAddBorder = (domElement, position = "bottom") => {
     @param {Boolean} return true removed everything or throw an error
 
 */
-
 const removeAllAppendedElements = (domElement) => {
     try {
         let transparentElement = document.getElementsByClassName(
@@ -86,6 +85,41 @@ const removeAllAppendedElements = (domElement) => {
         return true;
     } catch (error) {
         throw new Error("Cant remove elememt");
+    }
+};
+
+/* 
+    This function sets the arrow with appropriate position
+    
+    @param {arrowElememt , position} 
+    @return {arrowElememt}
+
+
+
+*/
+const setArrowAccordingToPosition = (arrowElement, position = "bottom") => {
+    try {
+        switch (position) {
+            case "top":
+                arrowElement.classList.add("down-arrow");
+                break;
+            case "left":
+                arrowElement.classList.add("right-arrow");
+                break;
+            case "right":
+                arrowElement.classList.add("left-arrow");
+                arrowElement.style.top = 20 + "px";
+                arrowElement.style.left = -7 + "px";
+                break;
+            default:
+                arrowElement.classList.add("up-arrow");
+                arrowElement.style.top = -7 + "px";
+                arrowElement.style.left = "20px";
+        }
+
+        return arrowElement;
+    } catch (error) {
+        throw new Error(error.message);
     }
 };
 
@@ -108,6 +142,7 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     let boxFooter = document.createElement("div");
     let backButton = document.createElement("button");
     let forwardButton = document.createElement("button");
+    let arrowElement = document.createElement("span");
 
     backButton.id = "backButton";
     forwardButton.id = "forwardButton";
@@ -119,6 +154,11 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     boxHeader.classList.add("box-header");
     boxBody.classList.add("box-body");
     boxFooter.classList.add("box-footer");
+    arrowElement.style.position = "relative";
+
+    console.log("arrowElement: " + arrowElement);
+    // small arrow
+    arrowElement = setArrowAccordingToPosition(arrowElement, position);
 
     // todo: setting styles for buttons
 
@@ -155,7 +195,6 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     // setting Text content
     backButton.textContent = "Back";
     forwardButton.textContent = "Next";
-
     boxHeader.textContent = title;
     boxBody.textContent = intro;
 
@@ -164,6 +203,7 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     boxFooter.appendChild(backButton);
     boxFooter.appendChild(forwardButton);
 
+    box.appendChild(arrowElement);
     box.appendChild(boxHeader);
     box.appendChild(boxBody);
     box.appendChild(boxFooter);
