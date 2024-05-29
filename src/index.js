@@ -7,8 +7,10 @@ function Walkthrough() {
     let format = {};
 
     this.start = () => {
-        const format = getFormatBeforeStaring();
-        this.format = format;
+        if (!this.isFormattedDataPresent()) {
+            const format = getFormatBeforeStaring();
+            this.format = format;
+        }
 
         if (this.validateFormattedDataAndSetStepsLength()) {
             // start the intro
@@ -22,7 +24,7 @@ function Walkthrough() {
     this.setOptions = (format) => {
         this.format = format;
         if (this.validateFormattedDataAndSetStepsLength()) {
-            startIntro(this.steps, this.currentStep, this.format);
+            return this;
         } else {
             throw new Error("Data not available or invalid");
         }
