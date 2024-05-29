@@ -15,18 +15,6 @@ const removeOverlayAndAddBorder = (domElement, position = "bottom") => {
         const top = rect.top + window.pageYOffset;
         const bottom = rect.bottom + window.pageYOffset;
 
-        console.log(
-            rect.left +
-                " " +
-                rect.top +
-                " " +
-                rect.right +
-                " " +
-                top +
-                " " +
-                bottom
-        );
-
         let transparentElement = document.createElement("div");
         transparentElement.style.position = "absolute";
         transparentElement.style.left = left - 20 + "px";
@@ -42,18 +30,51 @@ const removeOverlayAndAddBorder = (domElement, position = "bottom") => {
         // calculate the position to add the display box
 
         let positionObject = {
-            left: [left - 10, top],
+            left: [right - rect.width - 270 - 30, top],
             right: [right + 10, top],
             bottom: [left, bottom + 10],
-            top: [left, bottom - top - top],
+            top: [left, bottom - rect.height - 250 - 30],
         };
 
         // returning the position
 
-        console.log("position ", positionObject[position]);
+        //  To find the position if any display box is getting out of view port
+
+        function getPositionThatGivesExactCoordinates(position) {
+            switch (position) {
+                case "left":
+                    let [leftX, leftY] = positionObject["left"];
+                    if (leftX < 0 || leftY < 0) {
+                        return "bottom";
+                    } else {
+                        return "left";
+                    }
+                    break;
+                case "right":
+                    let [rightX, rightY] = positionObject["right"];
+                    if (rightX > window.innerWidth || rightY < 0) {
+                        return "bottom";
+                    } else {
+                        return "right";
+                    }
+                    break;
+                case "top":
+                    let [topX, topY] = positionObject["top"];
+                    if (topX < 0 || topY < 0) {
+                        return "bottom";
+                    } else {
+                        return "top";
+                    }
+                    break;
+                default:
+                    return "bottom";
+                    break;
+            }
+        }
 
         if (positionObject[position]) {
-            return positionObject[position];
+            let myPosition = getPositionThatGivesExactCoordinates(position);
+            return positionObject[myPosition];
         } else {
             return positionObject["bottom"];
         }
