@@ -75,13 +75,13 @@
     width: inherit !important;
     text-align: center;
 }
-
+/* 
 body {
     display: flex;
     flex-direction: column !important;
     justify-content: center;
     align-items: center !important;
-}
+} */
 
 .box-footer {
     display: flex !important;

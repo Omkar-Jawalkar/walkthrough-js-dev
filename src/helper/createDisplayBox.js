@@ -25,7 +25,7 @@ const removeOverlayAndAddBorder = (domElement, position = "bottom") => {
         domElement.classList.add("removeOverlayOnDomElement");
 
         // appent the transparent element to the Dom Element
-        domElement.parentNode.appendChild(transparentElement);
+        document.body.appendChild(transparentElement);
 
         // calculate the position to add the display box
 
@@ -115,8 +115,6 @@ const removeAllAppendedElements = (domElement) => {
     @param {arrowElememt , position} 
     @return {arrowElememt}
 
-
-
 */
 const setArrowAccordingToPosition = (arrowElement, position = "bottom") => {
     try {
@@ -177,7 +175,6 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     boxFooter.classList.add("box-footer");
     arrowElement.style.position = "absolute";
 
-    console.log("arrowElement: " + arrowElement);
     // small arrow
     arrowElement = setArrowAccordingToPosition(arrowElement, position);
 
@@ -217,7 +214,7 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     backButton.textContent = "Back";
     forwardButton.textContent = "Next";
     boxHeader.textContent = title;
-    boxBody.textContent = intro;
+    boxBody.innerHTML = intro;
 
     // appending child
 
