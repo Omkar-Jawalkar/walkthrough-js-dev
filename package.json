@@ -1,10 +1,13 @@
 {
     "name": "walkthrough-js-dev",
-    "version": "1.0.0",
-    "description": "Sample JS utilities library",
+    "version": "2.0.0",
+    "description": "This is a Lightweight Walkthrough (intro) library for Web Application",
     "main": "dist/walkthrough-js-dev.cjs.js",
     "module": "dist/walkthrough-js-dev.esm.js",
     "browser": "dist/walkthrough-js-dev.umd.js",
+    "repository": {
+        "url": "https://github.com/Omkar-Jawalkar/walkthrough-js-dev"
+    },
     "scripts": {
         "build": "rollup -c",
         "test": "node test/spec",
@@ -12,7 +15,7 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "devDependencies": {
         "@babel/core": "^7.24.5",
         "@babel/preset-env": "^7.24.5",
