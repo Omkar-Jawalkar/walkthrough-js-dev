@@ -178,8 +178,6 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     // small arrow
     arrowElement = setArrowAccordingToPosition(arrowElement, position);
 
-    // todo: setting styles for buttons
-
     backButton.addEventListener("click", (e) => {
         if (currentStep > 0) {
             currentStep--;

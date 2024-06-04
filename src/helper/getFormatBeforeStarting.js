@@ -31,7 +31,8 @@ const getFormatBeforeStaring = () => {
 
     // data-intro, data-step, data-title data-position
     let positionArray = ["top", "left", "right", "bottom"];
-    let stepsArray = new Array();
+    let stepsArrayWithSteps = new Array();
+    let stepsArrayWithNoSteps = new Array();
 
     for (let element of elementsWithDataIntroAttribute) {
         let title = element.getAttribute("data-title");
@@ -68,10 +69,22 @@ const getFormatBeforeStaring = () => {
         objectToBeAdded["element"] = element;
 
         // adding that object into stepsArray
-        stepsArray.push(objectToBeAdded);
+
+        if (objectToBeAdded["step"]) {
+            stepsArrayWithSteps.push(objectToBeAdded);
+        } else {
+            stepsArrayWithNoSteps.push(objectToBeAdded);
+        }
     }
 
-    return { steps: stepsArray };
+    stepsArrayWithSteps = stepsArrayWithSteps.sort((a, b) => {
+        return a?.step - b?.step;
+    });
+
+    let finalStepsArray = [...stepsArrayWithSteps, ...stepsArrayWithNoSteps];
+    console.log("finalStepsArray - " + finalStepsArray);
+
+    return { steps: finalStepsArray };
 };
 
 export default getFormatBeforeStaring;

@@ -33,7 +33,7 @@ function Walkthrough() {
     this.addHints = () => {};
 
     this.isFormattedDataPresent = () => {
-        if (Object.keys(this.format).length > 0) {
+        if (this.format && Object.keys(this.format).length > 0) {
             return true;
         }
         return false;
