@@ -1,6 +1,12 @@
 # walkthrough-js-dev
 
-`walkthrough-js-dev` is a lightweight and easy-to-use JavaScript library for creating walkthroughs or guided tours in your web applications. It's built with vanilla JavaScript, making it compatible with any JavaScript framework or library.
+`walkthrough-js-dev` is a lightweight and easy-to-use JavaScript library for creating walkthroughs or guided tours in your web applications. It's built with vanilla JavaScript, making it compatible with any JavaScript framework or library. 🌐
+
+
+## Usage
+
+// BLACK OVERLAY IMAGE REMAINING
+
 
 ## Installation
 
