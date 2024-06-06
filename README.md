@@ -13,11 +13,11 @@ npm install walkthrough-js-dev
 Or, you can include it directly in your HTML file:
 
 ```html
-<script src="path/to/walkthrough-js-dev.min.js"></script>
-<link rel="stylesheet" href="path/to/walkthrough-js-dev.min.css">
-````
+<script src="https://unpkg.com/walkthrough-js-dev@2.0.1/dist/walkthrough-js-dev.esm.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/walkthrough-js-dev@2.0.1/dist/assets/index.css">
+```
 
-## How to use
+## How to use (Examples)
 
 1. Using Data Attributes on HTML Elements.
 
@@ -123,6 +123,7 @@ walkthroughObj.setOptions({
     {
       title: 'Welcome',
       intro: 'Hello World! 👋',
+      step: 1,
       element:  document.querySelector('.card-title') 
     },
     {
@@ -139,5 +140,10 @@ walkthroughObj.setOptions({
   ]
 }).start()
 ```
+
+## Contributing ✨
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please submit them to the project's GitHub repository. 🐛
+
 
 
