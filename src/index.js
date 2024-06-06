@@ -1,5 +1,6 @@
 import getFormatBeforeStaring from "./helper/getFormatBeforeStarting.js";
 import startIntro from "./helper/startIntro.js";
+import "./index.scss";
 
 function Walkthrough() {
     let steps = -1;

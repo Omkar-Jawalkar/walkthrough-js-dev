@@ -18,7 +18,7 @@ export default [
             resolve(),
             commonjs(),
             scss({
-                output: "dist/index.min.css",
+                output: "dist/styles.min.css",
                 outputStyle: "compressed",
             }),
             babel({
