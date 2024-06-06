@@ -11,6 +11,7 @@
     "scripts": {
         "build": "rollup -c",
         "test": "node test/spec",
+        "watch": "rollup -c -w",
         "pretest": "npm run build"
     },
     "keywords": [],
@@ -23,5 +24,9 @@
         "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-commonjs": "^10.1.0",
         "rollup-plugin-node-resolve": "^5.2.0"
+    },
+    "dependencies": {
+        "rollup-plugin-scss": "^4.0.0",
+        "rollup-plugin-terser": "^7.0.2"
     }
 }
