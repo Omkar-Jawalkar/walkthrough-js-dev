@@ -17,12 +17,12 @@ const removeOverlayAndAddBorder = (domElement, position = "bottom") => {
 
         let transparentElement = document.createElement("div");
         transparentElement.style.position = "absolute";
-        transparentElement.style.left = left - 20 + "px";
-        transparentElement.style.top = top - 20 + "px";
+        transparentElement.style.left = left - 10 + "px";
+        transparentElement.style.top = top - 10 + "px";
         transparentElement.style.width = right - left + 20 + "px";
         transparentElement.style.height = bottom - top + 20 + "px";
+        transparentElement.style.opacity = "1";
         transparentElement.classList.add("transparent-element");
-        domElement.classList.add("removeOverlayOnDomElement");
 
         // appent the transparent element to the Dom Element
         document.body.appendChild(transparentElement);
@@ -169,6 +169,9 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     // setting styles
     box.style.left = left + "px";
     box.style.top = top + "px";
+    box.style.opacity = "1";
+    box.style.display = "block";
+
     box.classList.add("box");
     boxHeader.classList.add("box-header");
     boxBody.classList.add("box-body");
