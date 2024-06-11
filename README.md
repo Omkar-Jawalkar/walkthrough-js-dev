@@ -19,8 +19,8 @@ npm install walkthrough-js-dev
 Or, you can include it directly in your HTML file:
 
 ```html
-<script src="https://unpkg.com/walkthrough-js-dev@2.0.1/dist/walkthrough-js-dev.esm.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/walkthrough-js-dev@2.0.1/dist/assets/index.css">
+<script src="https://unpkg.com/walkthrough-js-dev@2.0.2/dist/walkthrough-js-dev.esm.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/walkthrough-js-dev@2.0.2/dist/assets/index.css">
 ```
 
 ## How to use (Examples)
@@ -56,7 +56,7 @@ You can add the following data attributes to an HTML element to start the intro:
 ```html
 <script type="importmap">
   {
-    "imports": { "walkthrough-js-dev": "https://unpkg.com/walkthrough-js-dev@2.0.1/dist/walkthrough-js-dev.esm.js"}
+    "imports": { "walkthrough-js-dev": "https://unpkg.com/walkthrough-js-dev@2.0.2/dist/walkthrough-js-dev.esm.js"}
   }
 </script>
 
