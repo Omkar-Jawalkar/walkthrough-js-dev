@@ -2,10 +2,9 @@
 
 `walkthrough-js-dev` is a lightweight and easy-to-use JavaScript library for creating walkthroughs or guided tours in your web applications. It's built with vanilla JavaScript, making it compatible with any JavaScript framework or library. 🌐
 
+## Usage (Example)
 
-## Usage
-
-// BLACK OVERLAY IMAGE REMAINING
+<img width="1280" alt="Screenshot 2024-06-11 at 6 48 52 AM" src="https://github.com/Omkar-Jawalkar/walkthrough-js-dev/assets/82781128/1a945ce5-6b4f-471a-a605-ae9a6a2310d6">
 
 
 ## Installation
@@ -19,8 +18,8 @@ npm install walkthrough-js-dev
 Or, you can include it directly in your HTML file:
 
 ```html
-<script src="https://unpkg.com/walkthrough-js-dev@2.0.2/dist/walkthrough-js-dev.esm.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/walkthrough-js-dev@2.0.2/dist/assets/index.css">
+<script src="https://unpkg.com/walkthrough-js-dev@2.0.3/dist/walkthrough-js-dev.esm.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/walkthrough-js-dev@2.0.3/dist/assets/index.css">
 ```
 
 ## How to use (Examples)
@@ -56,7 +55,7 @@ You can add the following data attributes to an HTML element to start the intro:
 ```html
 <script type="importmap">
   {
-    "imports": { "walkthrough-js-dev": "https://unpkg.com/walkthrough-js-dev@2.0.2/dist/walkthrough-js-dev.esm.js"}
+    "imports": { "walkthrough-js-dev": "https://unpkg.com/walkthrough-js-dev@2.0.3/dist/walkthrough-js-dev.esm.js"}
   }
 </script>
 
