@@ -5,5 +5,6 @@ export const setBackButtonText = () => {
 
 export const setForwardButtonText = () => {
     const forwardButton = document.getElementById("forwardButton");
+    console.log("DONE - TExt changed");
     forwardButton.textContent = "Done";
 };

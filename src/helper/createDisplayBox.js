@@ -105,6 +105,7 @@ const removeAllAppendedElements = (domElement) => {
         boxElement.remove();
         return true;
     } catch (error) {
+        return false;
         throw new Error("Cant remove elememt");
     }
 };
@@ -167,8 +168,8 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     forwardButton.id = "forwardButton";
 
     // setting styles
-    box.style.left = left + "px";
-    box.style.top = top + "px";
+    box.style.left = left + 10 + "px";
+    box.style.top = top + 10 + "px";
     box.style.opacity = "1";
     box.style.display = "block";
 
@@ -181,6 +182,8 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     // small arrow
     arrowElement = setArrowAccordingToPosition(arrowElement, position);
 
+    // todo: change text of button (new element is created recursive call)
+
     backButton.addEventListener("click", (e) => {
         if (currentStep > 0) {
             currentStep--;
@@ -192,7 +195,13 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     });
 
     forwardButton.addEventListener("click", (event) => {
-        if (currentStep === totalStepsLength - 2) {
+        console.log(
+            "currentStep - ",
+            currentStep,
+            "totalSteps - ",
+            totalStepsLength - 2
+        );
+        if (currentStep === totalStepsLength - 1) {
             setForwardButtonText();
         }
 
@@ -228,6 +237,9 @@ const CreateDisplayBox = (totalStepsLength, currentStep, format) => {
     box.appendChild(boxFooter);
 
     document.body.appendChild(box);
+    if (currentStep === totalStepsLength - 1) {
+        setForwardButtonText();
+    }
 };
 
 export default CreateDisplayBox;
