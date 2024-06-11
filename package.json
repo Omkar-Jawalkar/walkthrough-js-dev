@@ -1,6 +1,6 @@
 {
     "name": "walkthrough-js-dev",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "This is a Lightweight Walkthrough (intro) library for Web Application",
     "main": "dist/walkthrough-js-dev.cjs.js",
     "module": "dist/walkthrough-js-dev.esm.js",
